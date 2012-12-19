@@ -7,12 +7,13 @@
 #  last_name  :string(255)
 #  height     :integer
 #  weight     :integer
-#  class      :integer
+#  year       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 class Wrestler < ActiveRecord::Base
+  has_many :opponents
   attr_accessible :first_name, :height, :last_name, :weight, :year
 
   validates :first_name, presence: true, length: { maximum: 50 }

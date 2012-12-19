@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: matches
+#
+#  id             :integer          not null, primary key
+#  opp_first_name :string(255)
+#  opp_last_name  :string(255)
+#  match_date     :date
+#  school         :string(255)
+#  result         :string(255)
+#  tournament     :string(255)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  opp_first_name: MyString
+  opp_last_name: MyString
+  match_date: 2012-12-19
+  school: MyString
+  result: MyString
+  tournament: MyString
+
+two:
+  opp_first_name: MyString
+  opp_last_name: MyString
+  match_date: 2012-12-19
+  school: MyString
+  result: MyString
+  tournament: MyString

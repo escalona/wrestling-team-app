@@ -7,7 +7,7 @@
 #  last_name  :string(255)
 #  height     :integer
 #  weight     :integer
-#  class      :integer
+#  year       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

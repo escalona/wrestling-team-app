@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219081357) do
+ActiveRecord::Schema.define(:version => 20121219215434) do
+
+  create_table "matches", :force => true do |t|
+    t.string   "opp_first_name"
+    t.string   "opp_last_name"
+    t.date     "match_date"
+    t.string   "school"
+    t.string   "result"
+    t.string   "tournament"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "wrestlers", :force => true do |t|
     t.string   "first_name"
