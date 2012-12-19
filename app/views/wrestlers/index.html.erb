@@ -3,7 +3,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Height (Inches)</th>
@@ -14,8 +13,7 @@
   <tbody>
     <% @wrestlers.each do |wrestler| %>
       <tr>
-        <td><%= wrestler.id %></td>
-        <td><%= wrestler.first_name.capitalize %></td>
+        <td><%= link_to wrestler.first_name.capitalize, wrestler %></a></td>
         <td><%= wrestler.last_name.capitalize %></td>
         <td><%= wrestler.height %>"</td>
         <td><%= wrestler.weight %></td>

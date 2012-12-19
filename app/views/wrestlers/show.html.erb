@@ -1,0 +1,6 @@
+<h2><%= @wrestler.first_name.capitalize %> <%= @wrestler.last_name.capitalize %></h2>
+<p>Height: <%= @wrestler.height %></p>
+<p>Weight: <%= @wrestler.weight %></p>
+<p>Class: <%= @wrestler.year %></p>
+
+<%= link_to "Delete", @wrestler, :method => :delete, :class => 'btn btn-danger', :data => { :confirm => 'Are you sure?' } %>

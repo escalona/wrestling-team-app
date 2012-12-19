@@ -33,6 +33,9 @@
 
   <div class="container">
     <div class="row">
+      <% if flash[:notice].present? %>
+        <p class="flash-notice"><%= flash[:notice] %></p>
+      <% end %>
       <%= yield %>
     </div>
   </div>
