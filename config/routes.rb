@@ -1,5 +1,5 @@
 WrestlingTeamApp::Application.routes.draw do
-  get "wrestlers/new"
+  resources :wrestlers
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

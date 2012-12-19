@@ -1,0 +1,25 @@
+<!-- <% products = Product.includes(:user).all %> -->
+<h1>Team Roster</h1>
+<h3>Total Wrestlers = <%= wrestlers.count %></h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Sold by</th>
+      <th>Created at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.user.name %></td>
+        <td><%= product.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
