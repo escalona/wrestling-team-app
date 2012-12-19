@@ -1,2 +1,17 @@
-<h1>Wrestlers#new</h1>
-<p>Find me in app/views/wrestlers/new.html.erb</p>
+<h2>New Products View</h2>
+
+<% if @wrestler.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@wrestler.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+    <ul>
+    <% @wrestler.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', wrestlers_path %>

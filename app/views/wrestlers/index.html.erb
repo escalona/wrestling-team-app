@@ -1,24 +1,25 @@
-<!-- <% products = Product.includes(:user).all %> -->
 <h1>Team Roster</h1>
-<h3>Total Wrestlers = <%= wrestlers.count %></h3>
+<h3>Total Wrestlers = <%= @wrestlers.count %></h3>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Sold by</th>
-      <th>Created at</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Height (Inches)</th>
+      <th>Weight</th>
+      <th>Class</th>
     </tr>
   </thead>
   <tbody>
-    <% products.each do |product| %>
+    <% @wrestlers.each do |wrestler| %>
       <tr>
-        <td><%= product.id %></td>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.user.name %></td>
-        <td><%= product.created_at %></td>
+        <td><%= wrestler.id %></td>
+        <td><%= wrestler.first_name.capitalize %></td>
+        <td><%= wrestler.last_name.capitalize %></td>
+        <td><%= wrestler.height %>"</td>
+        <td><%= wrestler.weight %></td>
+        <td><%= wrestler.year %></td>
       </tr>
     <% end %>
   </tbody>
