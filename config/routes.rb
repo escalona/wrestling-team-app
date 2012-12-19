@@ -1,6 +1,8 @@
 WrestlingTeamApp::Application.routes.draw do
   resources :wrestlers
 
+  root to: 'wrestlers#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
