@@ -3,4 +3,30 @@
 <p>Weight: <%= @wrestler.weight %></p>
 <p>Class: <%= @wrestler.year %></p>
 
+<% if @wrestler.matches.any? %>
+  <h3>Matches (<%= @wrestler.matches.count %>)</h3>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Opponent</th>
+      <th>School</th>
+      <th>Tournament</th>
+      <th>Result (W/L)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= match.match_date %></a></td>
+        <td><%= match.opp_last_name ? match.opp_last_name.capitalize : match.opp_last_name%>, <%= match.opp_first_name ? match.opp_first_name.capitalize : match.opp_first_name%></td>
+        <td><%= match.school ? match.school.capitalize : match.school %></td>
+        <td><%= match.tournament ? match.tournament.capitalize : match.tournament %></td>
+        <td><%= match.result ? match.result.capitalize : match.result %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
 <%= link_to "Delete", @wrestler, :method => :delete, :class => 'btn btn-danger', :data => { :confirm => 'Are you sure?' } %>

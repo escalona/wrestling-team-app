@@ -11,6 +11,7 @@
 #  tournament     :string(255)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  wrestler_id    :integer
 #
 
 require 'test_helper'
