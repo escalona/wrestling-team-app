@@ -1,17 +1,6 @@
 WrestlingTeamApp::Application.routes.draw do
-  get "matches/index"
 
-  get "matches/create"
-
-  get "matches/new"
-
-  get "matches/show"
-
-  get "matches/edit"
-
-  get "matches/update"
-
-  get "matches/destroy"
+  resources :matches
 
   resources :wrestlers
 

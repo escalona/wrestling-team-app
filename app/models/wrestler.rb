@@ -13,7 +13,7 @@
 #
 
 class Wrestler < ActiveRecord::Base
-  has_many :opponents
+  has_many :matches
   attr_accessible :first_name, :height, :last_name, :weight, :year
 
   validates :first_name, presence: true, length: { maximum: 50 }
