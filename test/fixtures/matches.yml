@@ -9,9 +9,9 @@
 #  school         :string(255)
 #  result         :string(255)
 #  tournament     :string(255)
+#  wrestler_id    :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  wrestler_id    :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
@@ -19,15 +19,17 @@
 one:
   opp_first_name: MyString
   opp_last_name: MyString
-  match_date: 2012-12-19
+  match_date: 2012-12-21
   school: MyString
   result: MyString
   tournament: MyString
+  wrestler_id: 1
 
 two:
   opp_first_name: MyString
   opp_last_name: MyString
-  match_date: 2012-12-19
+  match_date: 2012-12-21
   school: MyString
   result: MyString
   tournament: MyString
+  wrestler_id: 1

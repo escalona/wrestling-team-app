@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121220002825) do
+ActiveRecord::Schema.define(:version => 20121221231151) do
 
   create_table "matches", :force => true do |t|
     t.string   "opp_first_name"
@@ -20,12 +20,10 @@ ActiveRecord::Schema.define(:version => 20121220002825) do
     t.string   "school"
     t.string   "result"
     t.string   "tournament"
+    t.integer  "wrestler_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-    t.integer  "wrestler_id"
   end
-
-  add_index "matches", ["wrestler_id"], :name => "index_matches_on_wrestler_id"
 
   create_table "wrestlers", :force => true do |t|
     t.string   "first_name"
