@@ -4,8 +4,8 @@
     <tr>
       <th><%= sortable "first_name" %></th>
       <th><%= sortable "last_name" %></th>
-      <th><%= sortable "height" %></th>
-      <th><%= sortable "weight" %></th>
+      <th><%= sortable "height", "Height (Feet/Inches)" %></th>
+      <th><%= sortable "weight", "Weight (lbs)" %></th>
       <th><%= sortable "year", "Class" %></th>
       <!-- <th><%#= sortable "result", "Wins" %></th> -->
       <!-- <th><%#= sortable "result", "Loses" %></th> -->
@@ -16,7 +16,7 @@
       <tr>
         <td><%= link_to wrestler.first_name.capitalize, wrestler %></a></td>
         <td><%= wrestler.last_name.capitalize %></td>
-        <td><%= wrestler.height %>"</td>
+        <td><%= height_conversion(wrestler.height) %></td>
         <td><%= wrestler.weight %></td>
         <td><%= wrestler.year %></td>
         <!-- <td><%#= @wins.where(:id => wrestler.id).count %></td> -->

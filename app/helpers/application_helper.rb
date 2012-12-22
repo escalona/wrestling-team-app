@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def height_conversion(inches)
+    divmod_output = inches.divmod(12)
+    "#{divmod_output[0]}\' #{divmod_output[1]}\""
+  end
+
   def sortable(column, title = nil)
     title ||= column.titleize
     css_class = column == sort_column ? "current #{sort_direction}" : nil

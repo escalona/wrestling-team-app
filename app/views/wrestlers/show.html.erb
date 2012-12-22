@@ -26,7 +26,7 @@
   <%= render @wrestler.matches.order(match_sort_column + ' ' + sort_direction) %>
   </table>
   <% else %>
-  <h3>No matches added</h3>
+    <h3>No matches added</h3>
   <% end %>
 
   <%= link_to "Create New Match", new_wrestler_match_path(@wrestler), :class => 'btn btn-primary' %>
