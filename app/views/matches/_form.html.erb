@@ -3,7 +3,7 @@
     <div class="control-group">
       <%= f.label :match_date, class: "control-label" %>
       <div class="controls">
-        <%= f.date_select :match_date, :order => [:day, :month, :year] %>
+        <%= f.date_select(:match_date, { :prompt => { :day => "Select day", :month => "Select month", :year => "Select year" }, :order => [:day, :month, :year] }, class: "input-medium") %>
       </div>
     </div>
     <div class="control-group">
@@ -33,7 +33,7 @@
     <div class="control-group">
       <%= f.label :result, 'Result (W/L)', class: "control-label" %>
       <div class="controls">
-        <%= f.select :result, [['Win', 'win'], ['Lose', 'lose']] %>
+        <%= f.select :result, [['Win', 'win'], ['Lose', 'lose']], {:include_blank => true, :defualt => nil}, class: "input-small" %>
       </div>
     </div>
 

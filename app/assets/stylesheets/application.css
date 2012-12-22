@@ -68,12 +68,12 @@
 }
 
 /* New */
-.create-new {
+.new-header {
   font-size: 31.5px;
   margin-bottom: 15px;
 }
 
-.new-pages {
+.new-page {
   padding-bottom: 9px;
   margin: 20px 0 30px;
   border-bottom: 1px solid #EEE;

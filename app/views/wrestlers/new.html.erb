@@ -1,20 +1,20 @@
-<div class="new-pages">
+<div class="new-page">
 
-<h2 class="create-new">New Wrestler</h2>
+  <h2 class="new-header">New Wrestler</h2>
 
-<% if @wrestler.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@wrestler.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <% if @wrestler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wrestler.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-    <ul>
-    <% @wrestler.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+      <ul>
+      <% @wrestler.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 </div>
 
 <%= link_to 'Back', wrestlers_path %>

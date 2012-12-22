@@ -1,5 +1,7 @@
-<h2>New Products View</h2>
+<div class="new-page">
+  <h2 class="new-header">Add Match for <%= @wrestler.first_name.capitalize %> <%= @wrestler.last_name.capitalize %></h2>
 
-<%= render 'form' %>
+  <%= render 'form' %>
+</div>
 
-<%= link_to 'Back', wrestlers_path %>
+<%= link_to 'Back', wrestlers_path, class: 'btn' %>
