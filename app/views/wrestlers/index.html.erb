@@ -7,6 +7,8 @@
       <th><%= sortable "height" %></th>
       <th><%= sortable "weight" %></th>
       <th><%= sortable "year", "Class" %></th>
+      <!-- <th><%#= sortable "result", "Wins" %></th> -->
+      <!-- <th><%#= sortable "result", "Loses" %></th> -->
     </tr>
   </thead>
   <tbody>
@@ -17,6 +19,8 @@
         <td><%= wrestler.height %>"</td>
         <td><%= wrestler.weight %></td>
         <td><%= wrestler.year %></td>
+        <!-- <td><%#= @wins.where(:id => wrestler.id).count %></td> -->
+        <!-- <td><%#= @loses.where(:id => wrestler.id).count %></td> -->
       </tr>
     <% end %>
   </tbody>

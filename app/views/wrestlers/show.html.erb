@@ -1,27 +1,32 @@
-<h2><%= @wrestler.first_name.capitalize %> <%= @wrestler.last_name.capitalize %></h2>
-<p>Height: <%= @wrestler.height %></p>
-<p>Weight: <%= @wrestler.weight %></p>
-<p>Class: <%= @wrestler.year %></p>
+<div class="page-header">
+  <h1 class="wrestler-name"><%= @wrestler.first_name.capitalize %> <%= @wrestler.last_name.capitalize %></h1>
+  <p>Height: <%= @wrestler.height %></p>
+  <p>Weight: <%= @wrestler.weight %></p>
+  <p>Class: <%= @wrestler.year %></p>
+  <%= link_to "Delete Wrestler", @wrestler, :method => :delete, :class => 'btn btn-mini btn-danger', :data => { :confirm => "Are you sure you? All matches for this wrestler will also be deleted." } %>
+</div>
 
-<% if @wrestler.matches.any? %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= sorts "match_date" %></th>
-      <th><%= sorts "opp_last_name", "Opponent" %></th>
-      <th><%= sorts "school" %></th>
-      <th><%= sorts "tournament" %></th>
-      <th><%= sorts "result" %></th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-<%= render @wrestler.matches.order(match_sort_column + ' ' + sort_direction) %>
+<div class="matches">
+  <h2 class="match-title">Matches</h2>
+  <% if @wrestler.matches.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= sorts "match_date" %></th>
+        <th><%= sorts "opp_last_name", "Opponent" %></th>
+        <th><%= sorts "school" %></th>
+        <th><%= sorts "tournament" %></th>
+        <th><%= sorts "result" %></th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+  <%= render @wrestler.matches.order(match_sort_column + ' ' + sort_direction) %>
+  </table>
+  <% else %>
+  <h3>No matches added</h3>
+  <% end %>
 
-</table>
-<% else %>
-<h3>No matches added</h3>
-<% end %>
+  <%= link_to "Create New Match", new_wrestler_match_path(@wrestler), :class => 'btn btn-primary' %>
+</div>
 
-<%= link_to "Create New Match", new_wrestler_match_path(@wrestler), :class => 'btn btn-primary' %>
-
-<%= link_to "Delete Wrestler", @wrestler, :method => :delete, :class => 'btn btn-danger', :data => { :confirm => 'Are you sure?' } %>
+<%= link_to "Back", wrestlers_path, :class => 'btn' %>

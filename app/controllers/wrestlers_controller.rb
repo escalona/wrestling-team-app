@@ -2,7 +2,9 @@ class WrestlersController < ApplicationController
   helper_method :sort_column, :sort_direction, :match_sort_column
 
   def index
-    @wrestlers = Wrestler.order(sort_column + ' ' + sort_direction)
+    @wrestlers = Wrestler.includes(:matches).order(sort_column + ' ' + sort_direction)
+    # @wins = Wrestler.joins(:matches).where(:matches => {:result => 'win'})
+    # @loses = Wrestler.joins(:matches).where(:matches => {:result => 'lose'})
 
     respond_to do |format|
       format.html # show default view
