@@ -1,5 +1,6 @@
 class WrestlersController < ApplicationController
   helper_method :sort_column, :sort_direction, :match_sort_column
+  http_basic_authenticate_with :name => "demo", :password => "demo"
 
   def index
     @wrestlers = Wrestler.includes(:matches).order(sort_column + ' ' + sort_direction)

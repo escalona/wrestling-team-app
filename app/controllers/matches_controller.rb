@@ -1,4 +1,6 @@
 class MatchesController < ApplicationController
+  http_basic_authenticate_with :name => "demo", :password => "demo"
+
   def index
     @matches = Match.all
 
