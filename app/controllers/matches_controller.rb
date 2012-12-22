@@ -11,17 +11,19 @@ class MatchesController < ApplicationController
   def create
     @wrestler = Wrestler.find(params[:wrestler_id])
     @match = @wrestler.matches.create(params[:match])
-    redirect_to wrestler_path(@wrestler)
 
-    # respond_to do |format|
-    #   if @match.save
-    #     format.html { render :action => "create" }
-    #     format.json { render :json => @match }
-    #   else
-    #     format.html { render :action => "new" }
-    #     format.json { render :json => @match.errors, :status => unprocessable_entitiy }
-    #   end
-    # end
+    respond_to do |format|
+      if @match.save
+        format.html {
+          redirect_to wrestler_path(@wrestler)
+          flash[:success] = "Match was successfully created."
+        }
+        format.json { render :json => @match }
+      else
+        format.html { render :action => "new" }
+        format.json { render :json => @match.errors, :status => unprocessable_entitiy }
+      end
+    end
   end
 
   def new
@@ -41,7 +43,7 @@ class MatchesController < ApplicationController
     @wrestler = Wrestler.find(params[:wrestler_id])
     @match = @wrestler.matches.find(params[:id])
     if @match.update_attributes(params[:match])
-      flash[:notice] = 'Successfully updated match'
+      flash[:success] = 'Match was successfully updated.'
       redirect_to wrestler_path(@wrestler)
     else
       render :action => 'edit'
@@ -52,7 +54,7 @@ class MatchesController < ApplicationController
     @wrestler = Wrestler.find(params[:wrestler_id])
     @match = @wrestler.matches.find(params[:id])
     @match.destroy
-    flash[:notice] = 'Successfully destroyed match'
+    flash[:error] = 'Match has been deleted.'
     redirect_to wrestler_path(@wrestler)
   end
 end

@@ -17,7 +17,10 @@ class WrestlersController < ApplicationController
 
     respond_to do |format|
       if @wrestler.save
-        format.html { render :action => "create" }
+        format.html {
+          redirect_to wrestlers_path
+          flash[:success] = "Wrester was successfully created."
+        }
         format.json { render :json => @wrestler }
       else
         format.html { render :action => "new" }
@@ -47,7 +50,9 @@ class WrestlersController < ApplicationController
 
     respond_to do |format|
       if @wrestler.update_attributes(params[:wrestler])
-        format.html { redirect_to @wrestler, :notice => 'Wrestler was successfully updated' }
+        format.html {
+          redirect_to @wrestler
+          flash[:success] = 'Wrestler was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -61,7 +66,10 @@ class WrestlersController < ApplicationController
     @wrestler.destroy
 
     respond_to do |format|
-      format.html { redirect_to wrestlers_url }
+      format.html {
+        redirect_to wrestlers_url
+        flash[:error] = "Wrestler has been deleted."
+      }
       format.json { head :no_content}
     end
   end
