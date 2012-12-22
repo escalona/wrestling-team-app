@@ -5,7 +5,13 @@
     <td><%= match.school ? match.school.capitalize : match.school %></td>
     <td><%= match.tournament ? match.tournament.capitalize : match.tournament %></td>
     <td><%= match.result ? match.result.capitalize : match.result %></td>
-    <td><%= link_to "Edit Match", edit_wrestler_match_path(@wrestler, match), :class => 'btn' %></td>
-    <td><%= link_to "Delete Match", [@wrestler, match], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'%></td>
+    <td><%= link_to edit_wrestler_match_path(@wrestler, match), :class => 'btn'  do %>
+        <i class="icon-edit"></i> Edit Match
+        <% end %>
+    </td>
+    <td><%= link_to [@wrestler, match], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger' do%>
+        <i class="icon-trash"></i> Delete Match
+        <% end %>
+    </td>
   </tr>
 </tbody>

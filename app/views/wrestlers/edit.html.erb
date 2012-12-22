@@ -1,7 +1,9 @@
-<div class="new-pages">
-  <h2 class="create-new">Editing Wrestler</h2>
+<div class="new-page">
+  <h2 class="new-header">Editing <%= @wrestler.first_name.capitalize %> <%= @wrestler.last_name.capitalize %></h2>
 
   <%= render 'form' %>
 
 </div>
-<%= link_to 'Back', wrestlers_path, :class => 'btn' %>
+<%= link_to wrestler_path(@wrestler), :class => 'btn' do %>
+<i class="icon-arrow-left"></i> Back
+<% end %>

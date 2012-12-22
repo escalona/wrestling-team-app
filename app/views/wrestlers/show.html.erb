@@ -4,9 +4,13 @@
   <p>Weight: <%= @wrestler.weight %></p>
   <p>Class: <%= @wrestler.year %></p>
 
-  <%= link_to "Edit Wrestler", edit_wrestler_path(@wrestler), :class => 'btn btn-mini btn-info' %>
+  <%= link_to edit_wrestler_path(@wrestler), :class => 'btn btn-mini btn-info' do %>
+    <i class="icon-edit"></i> Edit Wrestler
+  <% end %>
 
-  <%= link_to "Delete Wrestler", @wrestler, :method => :delete, :class => 'btn btn-mini btn-danger', :data => { :confirm => "Are you sure you? All matches for this wrestler will also be deleted." } %>
+  <%= link_to @wrestler, :method => :delete, :class => 'btn btn-mini btn-danger', :data => { :confirm => "Are you sure you? All matches for this wrestler will also be deleted." } do %>
+  <i class="icon-trash"></i> Delete Wrestler
+  <% end %>
 </div>
 
 <div class="matches">
@@ -26,10 +30,14 @@
   <%= render @wrestler.matches.order(match_sort_column + ' ' + sort_direction) %>
   </table>
   <% else %>
-    <h3>No matches added</h3>
+    <h3 class="no-matches">No matches added</h3>
   <% end %>
 
-  <%= link_to "Create New Match", new_wrestler_match_path(@wrestler), :class => 'btn btn-primary' %>
+  <%= link_to new_wrestler_match_path(@wrestler), :class => 'btn btn-primary' do %>
+  <i class="icon-plus"></i> Add New Match
+  <% end %>
 </div>
 
-<%= link_to "Back", wrestlers_path, :class => 'btn' %>
+<%= link_to wrestlers_path, class: 'btn' do %>
+  <i class="icon-home "></i> Back
+<% end %>

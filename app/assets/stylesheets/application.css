@@ -78,3 +78,7 @@
   margin: 20px 0 30px;
   border-bottom: 1px solid #EEE;
 }
+
+.no-matches {
+  margin-bottom: 15px;
+}
