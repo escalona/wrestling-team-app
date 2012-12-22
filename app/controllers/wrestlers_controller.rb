@@ -29,7 +29,6 @@ class WrestlersController < ApplicationController
 
   def show
     @wrestler = Wrestler.find(params[:id])
-    @matches = @wrestler.matches # shows matches on wrestlers page
   end
 
   def edit
