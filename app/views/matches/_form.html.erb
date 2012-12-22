@@ -1,0 +1,44 @@
+<%= form_for([@wrestler, @match]) do |f| %>
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :match_date, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :match_date %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :opponents_first_name, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :opp_first_name %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :opponents_last_name, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :opp_last_name %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :school, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :school %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :tournament, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :tournament %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :result, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :result %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit class: "btn btn-primary"%>
+    </div>
+  </fieldset>
+<% end %>
