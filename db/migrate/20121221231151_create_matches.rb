@@ -7,6 +7,7 @@ class CreateMatches < ActiveRecord::Migration
       t.string :school
       t.string :result
       t.string :tournament
+      t.integer :wrestler_id
 
       t.timestamps
     end

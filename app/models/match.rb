@@ -9,12 +9,12 @@
 #  school         :string(255)
 #  result         :string(255)
 #  tournament     :string(255)
+#  wrestler_id    :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
 
 class Match < ActiveRecord::Base
-  belongs_to :wrestler
-
-  attr_accessible :match_date, :opp_first_name, :opp_last_name, :result, :school, :tournament
+  belongs_to :wrestlers
+  attr_accessible :match_date, :opp_first_name, :opp_last_name, :result, :school, :tournament, :wrestler_id
 end

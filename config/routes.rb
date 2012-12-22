@@ -1,8 +1,10 @@
 WrestlingTeamApp::Application.routes.draw do
 
-  resources :matches
+  # resources :matches
 
-  resources :wrestlers
+  resources :wrestlers do
+    resources :matches
+  end
 
   root to: 'wrestlers#index'
 

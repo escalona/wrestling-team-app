@@ -9,6 +9,7 @@
 #  school         :string(255)
 #  result         :string(255)
 #  tournament     :string(255)
+#  wrestler_id    :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

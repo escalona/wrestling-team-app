@@ -19,7 +19,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Highschool Name</a>
+        <%= link_to "Highschool Name", wrestlers_path, class: 'brand' %>
         <div class="nav-collapse">
           <ul class="nav">
             <li><%= link_to "Link", "#" %></li>
@@ -37,6 +37,7 @@
         <p class="flash-notice"><%= flash[:notice] %></p>
       <% end %>
       <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </div>
 </body>

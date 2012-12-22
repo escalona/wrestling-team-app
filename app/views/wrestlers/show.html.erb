@@ -3,4 +3,8 @@
 <p>Weight: <%= @wrestler.weight %></p>
 <p>Class: <%= @wrestler.year %></p>
 
-<%= link_to "Delete", @wrestler, :method => :delete, :class => 'btn btn-danger', :data => { :confirm => 'Are you sure?' } %>
+<%= render @wrestler.matches %>
+
+<%= link_to "Create New Match", new_wrestler_match_path(@wrestler), :class => 'btn btn-primary' %>
+
+<%= link_to "Delete Wrestler", @wrestler, :method => :delete, :class => 'btn btn-danger', :data => { :confirm => 'Are you sure?' } %>
