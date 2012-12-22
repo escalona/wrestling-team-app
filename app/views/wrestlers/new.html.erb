@@ -1,4 +1,6 @@
-<h2>New Wrestler</h2>
+<div class="new-pages">
+
+<h2 class="create-new">New Wrestler</h2>
 
 <% if @wrestler.errors.any? %>
   <div id="error_explanation">
@@ -13,5 +15,6 @@
 <% end %>
 
 <%= render 'form' %>
+</div>
 
 <%= link_to 'Back', wrestlers_path %>

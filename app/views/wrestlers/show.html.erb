@@ -3,6 +3,9 @@
   <p>Height: <%= @wrestler.height %></p>
   <p>Weight: <%= @wrestler.weight %></p>
   <p>Class: <%= @wrestler.year %></p>
+
+  <%= link_to "Edit Wrestler", edit_wrestler_path(@wrestler), :class => 'btn btn-mini btn-info' %>
+
   <%= link_to "Delete Wrestler", @wrestler, :method => :delete, :class => 'btn btn-mini btn-danger', :data => { :confirm => "Are you sure you? All matches for this wrestler will also be deleted." } %>
 </div>
 
