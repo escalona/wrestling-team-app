@@ -17,4 +17,12 @@
 class Match < ActiveRecord::Base
   belongs_to :wrestlers
   attr_accessible :match_date, :opp_first_name, :opp_last_name, :result, :school, :tournament, :wrestler_id
+  before_save do |match|
+    match.opp_first_name = match.opp_first_name.downcase
+    match.opp_last_name = match.opp_last_name.downcase
+    match.school = match.school.downcase
+    match.tournament = match.tournament.downcase
+  end
+
+  default_scope :order => 'match_date ASC'
 end

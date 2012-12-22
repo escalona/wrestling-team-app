@@ -11,3 +11,21 @@
  *= require_self
  *= require_tree .
  */
+
+ .table th .current {
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: right center;
+ }
+
+.table th .asc {
+  background-image: url(/assets/icon-sort-up.png);
+}
+
+.table th .desc {
+  background-image: url(/assets/icon-sort-down.png);
+}
+
+.table th a {
+  color: #333;
+}

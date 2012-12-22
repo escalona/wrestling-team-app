@@ -3,7 +3,23 @@
 <p>Weight: <%= @wrestler.weight %></p>
 <p>Class: <%= @wrestler.year %></p>
 
+<% if @wrestler.matches.any? %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Opponent</th>
+      <th>School</th>
+      <th>Tournament</th>
+      <th>Result (W/L)</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
 <%= render @wrestler.matches %>
+</table>
+<% else %>
+<h3>No matches added</h3>
+<% end %>
 
 <%= link_to "Create New Match", new_wrestler_match_path(@wrestler), :class => 'btn btn-primary' %>
 

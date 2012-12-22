@@ -1,7 +1,8 @@
 class WrestlersController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
   def index
-    @wrestlers = Wrestler.all
+    @wrestlers = Wrestler.order(sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html # show default view
@@ -57,5 +58,15 @@ class WrestlersController < ApplicationController
       format.html { redirect_to wrestlers_url }
       format.json { head :no_content}
     end
+  end
+
+  private
+
+  def sort_column
+    Wrestler.column_names.include?(params[:sort]) ? params[:sort] : "first_name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

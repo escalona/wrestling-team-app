@@ -3,7 +3,7 @@
     <div class="control-group">
       <%= f.label :match_date, class: "control-label" %>
       <div class="controls">
-        <%= f.text_field :match_date %>
+        <%= f.date_select :match_date, :order => [:day, :month, :year] %>
       </div>
     </div>
     <div class="control-group">
@@ -31,9 +31,9 @@
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :result, class: "control-label" %>
+      <%= f.label :result, 'Result (W/L)', class: "control-label" %>
       <div class="controls">
-        <%= f.text_field :result %>
+        <%= f.select :result, [['Win', 'win'], ['Lose', 'lose']] %>
       </div>
     </div>
 
