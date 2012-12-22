@@ -1,0 +1,12 @@
+<% if @wrestler.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-error">
+      The form contains <%= pluralize(@wrestler.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @wrestler.errors.full_messages.each do |msg| %>
+      <li>* <%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

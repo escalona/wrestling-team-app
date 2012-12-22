@@ -20,6 +20,6 @@ class Wrestler < ActiveRecord::Base
     wrestler.last_name = wrestler.last_name.downcase
   end
 
-  validates :first_name, presence: true, length: { maximum: 50 }
-  validates :last_name, presence: true, length: { maximum: 50 }
+  validates :first_name, :presence => {:message => 'cannot be blank, wrestler not saved'}, :length => { maximum: 50 }
+  validates :last_name, :presence => {:message => 'cannot be blank, wrestler not saved'}, :length => { maximum: 50 }
 end

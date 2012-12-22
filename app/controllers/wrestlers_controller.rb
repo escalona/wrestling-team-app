@@ -24,7 +24,7 @@ class WrestlersController < ApplicationController
         format.json { render :json => @wrestler }
       else
         format.html { render :action => "new" }
-        format.json { render :json => @wrestler.errors, :status => unprocessable_entity }
+        format.json { render :json => @wrestler.errors, :status => :unprocessable_entity }
       end
     end
   end

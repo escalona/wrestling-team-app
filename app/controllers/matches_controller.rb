@@ -21,7 +21,6 @@ class MatchesController < ApplicationController
         format.json { render :json => @match }
       else
         format.html { render :action => "new" }
-        format.json { render :json => @match.errors, :status => unprocessable_entitiy }
       end
     end
   end
