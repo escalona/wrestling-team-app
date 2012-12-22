@@ -23,6 +23,4 @@ class Match < ActiveRecord::Base
     match.school = match.school.downcase
     match.tournament = match.tournament.downcase
   end
-
-  default_scope :order => 'match_date ASC'
 end

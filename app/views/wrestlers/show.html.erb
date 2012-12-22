@@ -7,15 +7,16 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Opponent</th>
-      <th>School</th>
-      <th>Tournament</th>
-      <th>Result (W/L)</th>
+      <th><%= sorts "match_date" %></th>
+      <th><%= sorts "opp_last_name", "Opponent" %></th>
+      <th><%= sorts "school" %></th>
+      <th><%= sorts "tournament" %></th>
+      <th><%= sorts "result" %></th>
       <th>Actions</th>
     </tr>
   </thead>
-<%= render @wrestler.matches %>
+<%= render @wrestler.matches.order(match_sort_column + ' ' + sort_direction) %>
+
 </table>
 <% else %>
 <h3>No matches added</h3>

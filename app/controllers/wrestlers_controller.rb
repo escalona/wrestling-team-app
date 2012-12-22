@@ -1,5 +1,5 @@
 class WrestlersController < ApplicationController
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_direction, :match_sort_column
 
   def index
     @wrestlers = Wrestler.order(sort_column + ' ' + sort_direction)
@@ -64,6 +64,10 @@ class WrestlersController < ApplicationController
 
   def sort_column
     Wrestler.column_names.include?(params[:sort]) ? params[:sort] : "first_name"
+  end
+
+  def match_sort_column
+    Match.column_names.include?(params[:sort]) ? params[:sort] : "match_date"
   end
 
   def sort_direction
