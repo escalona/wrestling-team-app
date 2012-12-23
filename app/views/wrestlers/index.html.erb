@@ -1,9 +1,14 @@
-<%= form_tag wrestlers_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+<div class="search">
+  <h4 class="search-title">Search by tournament</h4>
+  <%= form_tag wrestlers_path, :class => "form-search", :method => 'get' do %>
+    <%= text_field_tag :search, params[:search], :class => "input-medium search-query", :placeholder => "Tournament name" %>
+    <%= submit_tag 'Search', :name => nil, :class => "btn" %>
+  <% end %>
+</div>
+
+<% if @wins %>
+ <%= render 'search' %>
+<% else %>
 
 <h1 class="roster-title">Team Roster</h1>
 <table class="table table-striped">
@@ -35,4 +40,6 @@
 
 <%= link_to new_wrestler_path, :class => 'btn btn-primary' do %>
   <i class="icon-user icon-white"></i> Add Wrestler
+<% end %>
+
 <% end %>

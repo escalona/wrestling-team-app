@@ -1,0 +1,29 @@
+<div class="matches">
+  <h2 class="match-title">Wrestlers in Tournament</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Tournament</th>
+        <th>Wins</th>
+        <th>Losses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @wins.uniq.each do |wrestler| %>
+        <tr>
+          <td><%= link_to wrestler.first_name.capitalize, wrestler %></a></td>
+          <td><%= wrestler.last_name.capitalize %></td>
+          <td><%= params[:search].capitalize%></td>
+          <td><%= wrestler.matches.where(:tournament => params[:search], :result => 'win').collect(&:result).count %></td>
+          <td><%= wrestler.matches.where(:tournament => params[:search], :result => 'lose').collect(&:result).count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to wrestlers_path, class: 'btn' do %>
+  <i class="icon-home "></i> Back
+<% end %>
