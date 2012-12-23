@@ -7,7 +7,6 @@ class WrestlersController < ApplicationController
 
     # search logic
     if params[:search]
-      # @wrestlers = Wrestler.find(:all, :conditions => ['first_name LIKE?', "%#{params[:search]}%"])
       @wins = Wrestler.find :all, :joins => :matches, :conditions => ['matches.tournament LIKE ?', "%#{params[:search]}%"]
     else
       @wrestlers = Wrestler.find(:all)
