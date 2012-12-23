@@ -1,3 +1,10 @@
+<%= form_tag wrestlers_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <h1 class="roster-title">Team Roster</h1>
 <table class="table table-striped">
   <thead>

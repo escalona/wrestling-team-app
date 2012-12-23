@@ -4,6 +4,14 @@ class WrestlersController < ApplicationController
 
   def index
     @wrestlers = Wrestler.includes(:matches).order(sort_column + ' ' + sort_direction)
+
+    # search logic
+    if params[:search]
+      @wrestlers = Wrestler.find(:all, :conditions => ['first_name LIKE?', "%#{params[:search]}%"])
+    else
+      @wrestlers = Wrestler.find(:all)
+    end
+
     # @wins = Wrestler.joins(:matches).where(:matches => {:result => 'win'})
     # @loses = Wrestler.joins(:matches).where(:matches => {:result => 'lose'})
 
@@ -72,6 +80,11 @@ class WrestlersController < ApplicationController
         flash[:error] = "Wrestler has been deleted."
       }
       format.json { head :no_content}
+    end
+
+    def search
+      q = params[:wrestler][:first_name]
+      @wrestlers = Wrestler.find(:all, :conditions => ["name LIKE %?%", q])
     end
   end
 
