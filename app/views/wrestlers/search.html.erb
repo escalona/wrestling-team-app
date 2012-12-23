@@ -1,7 +1,0 @@
-<%- @wrestlers.each do |wrestler| -%>
-  Name: <%= wrestler.first_name %>
-
-  <%- wrestler.matches.each do |match| -%>
-    <%= match.tournament %>
-  <%- end -%>
-<%- end -%>

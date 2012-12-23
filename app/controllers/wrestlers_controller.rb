@@ -3,13 +3,11 @@ class WrestlersController < ApplicationController
   http_basic_authenticate_with :name => "demo", :password => "demo"
 
   def index
-    @wrestlers = Wrestler.includes(:matches).order(sort_column + ' ' + sort_direction)
-
     # search logic
     if params[:search]
       @wins = Wrestler.find :all, :joins => :matches, :conditions => ['matches.tournament LIKE ?', "%#{params[:search]}%"]
     else
-      @wrestlers = Wrestler.find(:all)
+       @wrestlers = Wrestler.includes(:matches).order(sort_column + ' ' + sort_direction)
     end
 
     # @wins = Wrestler.joins(:matches).where(:matches => {:result => 'win'})
