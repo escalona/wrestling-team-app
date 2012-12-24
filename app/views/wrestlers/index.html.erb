@@ -28,7 +28,7 @@
       <tr>
         <td><%= link_to wrestler.first_name.capitalize, wrestler %></a></td>
         <td><%= wrestler.last_name.capitalize %></td>
-        <td><%= wrestler.height ? height_conversion(wrestler.height) : wrestler.height%></td>
+        <td><%= height_conversion(wrestler.height)%></td>
         <td><%= wrestler.weight %></td>
         <td><%= wrestler.year %></td>
         <!-- <td><%#= @wins.where(:id => wrestler.id).count %></td> -->

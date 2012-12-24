@@ -1,10 +1,10 @@
 <tbody>
   <tr>
     <td><%= match.match_date %></a></td>
-    <td><%= match.opp_last_name ? match.opp_last_name.capitalize : match.opp_last_name%>, <%= match.opp_first_name ? match.opp_first_name.capitalize : match.opp_first_name%></td>
-    <td><%= match.school ? match.school.capitalize : match.school %></td>
-    <td><%= match.tournament ? match.tournament.capitalize : match.tournament %></td>
-    <td><%= match.result ? match.result.capitalize : match.result %></td>
+    <td><%= match.opp_last_name.capitalize %>, <%= match.opp_first_name ? match.opp_first_name.capitalize : match.opp_first_name%></td>
+    <td><%= match.school.capitalize %></td>
+    <td><%= match.tournament.capitalize %></td>
+    <td><%= match.result.capitalize %></td>
     <td><%= link_to edit_wrestler_match_path(@wrestler, match), :class => 'btn'  do %>
         <i class="icon-edit"></i> Edit Match
         <% end %>
