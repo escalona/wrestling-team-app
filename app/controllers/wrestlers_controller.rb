@@ -43,7 +43,7 @@ class WrestlersController < ApplicationController
   end
 
   def show
-    @wrestler = Wrestler.find(params[:id])
+    @wrestler = Wrestler.includes(:matches).find(params[:id])
   end
 
   def edit

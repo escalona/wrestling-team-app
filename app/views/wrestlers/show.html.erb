@@ -1,5 +1,7 @@
 <div class="page-header">
   <h1 class="wrestler-name"><%= @wrestler.first_name.capitalize %> <%= @wrestler.last_name.capitalize %></h1>
+  <p>Record: <%= @wrestler.matches.where(:result => 'win').count %> -
+    <%= @wrestler.matches.where(:result => 'lose').count %></p>
   <p>Height: <%= @wrestler.height %></p>
   <p>Weight: <%= @wrestler.weight %></p>
   <p>Class: <%= @wrestler.year %></p>
