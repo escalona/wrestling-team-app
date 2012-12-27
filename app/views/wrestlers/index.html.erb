@@ -1,13 +1,16 @@
 <div class="search">
-  <h4 class="search-title">Search by tournament</h4>
+  <h4 class="search-title">Search</h4>
   <%= form_tag wrestlers_path, :class => "form-search", :method => 'get' do %>
-    <%= text_field_tag :search, params[:search], :class => "input-medium search-query", :placeholder => "Tournament name" %>
+    <%= select_tag "people", "<option>Tournament</option><option>Wrestler Last Name</option>".html_safe, :class => "input-medium" %>
+    <%= text_field_tag :search, params[:search], :class => "input-medium search-query", :placeholder => "Tournament / Wrestler" %>
     <%= submit_tag 'Search', :name => nil, :class => "btn" %>
   <% end %>
+
+
 </div>
 
-<% if @wins %>
- <%= render 'search' %>
+<% if @tourny %>
+ <%= render 'match_search' %>
 <% else %>
 
 <h1 class="roster-title">Team Roster</h1>
@@ -16,11 +19,9 @@
     <tr>
       <th><%= sortable "first_name" %></th>
       <th><%= sortable "last_name" %></th>
-      <th><%= sortable "height", "Height (Feet/Inches)" %></th>
+      <th>Record</th>
       <th><%= sortable "weight", "Weight (lbs)" %></th>
       <th><%= sortable "year", "Class" %></th>
-      <!-- <th><%#= sortable "result", "Wins" %></th> -->
-      <!-- <th><%#= sortable "result", "Loses" %></th> -->
     </tr>
   </thead>
   <tbody>
@@ -28,11 +29,10 @@
       <tr>
         <td><%= link_to wrestler.first_name.capitalize, wrestler %></a></td>
         <td><%= wrestler.last_name.capitalize %></td>
-        <td><%= height_conversion(wrestler.height)%></td>
+        <td><%= wrestler.matches.where(:result => 'win').count%> -
+            <%= wrestler.matches.where(:result => 'lose').count %></td>
         <td><%= wrestler.weight %></td>
         <td><%= wrestler.year %></td>
-        <!-- <td><%#= @wins.where(:id => wrestler.id).count %></td> -->
-        <!-- <td><%#= @loses.where(:id => wrestler.id).count %></td> -->
       </tr>
     <% end %>
   </tbody>

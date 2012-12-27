@@ -5,13 +5,13 @@ class WrestlersController < ApplicationController
   def index
     # search logic
     if params[:search]
-      @wins = Wrestler.find :all, :joins => :matches, :conditions => ['matches.tournament LIKE ?', "%#{params[:search]}%"]
+      @tourny = Wrestler.find :all, :joins => :matches, :conditions => ['matches.tournament LIKE ?', "%#{params[:search]}%"]
+      @wrestler_name = Wrestler.find :all, :conditions => ['wrestlers.last_name LIKE ?', "%#{params[:search]}%"]
     else
        @wrestlers = Wrestler.includes(:matches).order(sort_column + ' ' + sort_direction)
     end
-
-    # @wins = Wrestler.joins(:matches).where(:matches => {:result => 'win'})
-    # @loses = Wrestler.joins(:matches).where(:matches => {:result => 'lose'})
+    # @match_wins = Wrestler.joins(:matches).where(:matches => {:result => 'win'})
+    # @match_loses = Wrestler.joins(:matches).where(:matches => {:result => 'lose'})
 
     respond_to do |format|
       format.html # show default view
