@@ -5,8 +5,8 @@ class WrestlersController < ApplicationController
   def index
     # search logic
     if params[:search]
-      @tourny = Wrestler.find :all, :joins => :matches, :conditions => ['matches.tournament LIKE ?', "%#{params[:search]}%"]
-      @wrestler_name = Wrestler.find :all, :conditions => ['wrestlers.last_name LIKE ?', "%#{params[:search]}%"]
+      @tourny = Wrestler.find :all, :joins => :matches, :conditions => ['matches.tournament LIKE ?', "%#{params[:search].downcase}%"]
+      @wrestler_name = Wrestler.find :all, :conditions => ['wrestlers.last_name LIKE ?', "%#{params[:search].downcase}%"]
     else
        @wrestlers = Wrestler.includes(:matches).order(sort_column + ' ' + sort_direction)
     end
