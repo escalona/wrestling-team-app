@@ -1,3 +1,5 @@
+<% if @tourny.present? %>
+
 <div class="matches">
   <h2 class="match-title">Tournament Search Results</h2>
   <table class="table table-striped">
@@ -26,6 +28,8 @@
   </table>
 </div>
 
+<% else %>
+
 <div class="search-results">
   <h2 class="match-title">Wrestler Search Results</h2>
   <table class="table table-striped">
@@ -52,6 +56,8 @@
     </tbody>
   </table>
 </div>
+
+<% end %>
 
 <%= link_to wrestlers_path, class: 'btn' do %>
   <i class="icon-home "></i> Back
