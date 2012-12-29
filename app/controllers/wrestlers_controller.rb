@@ -3,7 +3,7 @@ class WrestlersController < ApplicationController
   http_basic_authenticate_with :name => "demo", :password => "demo"
 
   def index
-    @wrestlers = Wrestler.includes(:matches).order(sort_column + ' ' + sort_direction)
+    @wrestlers = Wrestler.paginate(:page => params[:page] ||= 1, :per_page => params[:per_page] ||= 25).includes(:matches).order(sort_column + ' ' + sort_direction)
     # @match_wins = Wrestler.joins(:matches).where(:matches => {:result => 'win'})
     # @match_loses = Wrestler.joins(:matches).where(:matches => {:result => 'lose'})
 
@@ -37,7 +37,9 @@ class WrestlersController < ApplicationController
   end
 
   def show
-    @wrestler = Wrestler.includes(:matches).find(params[:id])
+    # @wrestler = Wrestler.includes(:matches).find(params[:id])
+    @wrestler = Wrestler.find(params[:id])
+
   end
 
   def edit
