@@ -6,6 +6,10 @@ WrestlingTeamApp::Application.routes.draw do
     resources :matches
   end
 
+  get 'search' => 'search#index'
+
+  get 'tournament' => 'tournaments#index'
+
   root to: 'wrestlers#index'
 
   # The priority is based upon order of creation:

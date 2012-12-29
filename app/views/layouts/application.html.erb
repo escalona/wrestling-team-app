@@ -15,6 +15,13 @@
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
+    <div class="search">
+      <h4 class="search-title">Search by Tournament or Wrestler's Last Name</h4>
+      <%= form_tag(search_path, :method => "get") do %>
+        <%= text_field_tag(:q, nil, :placeholder => "search", :style => "margin-top: 10px") %>
+        <%= submit_tag "Search", :class => "btn" %>
+      <% end %>
+    </div>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
   </div>
